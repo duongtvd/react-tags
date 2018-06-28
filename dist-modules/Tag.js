@@ -22,6 +22,8 @@ var _flow2 = _interopRequireDefault(_flow);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -116,6 +118,8 @@ var Tag = function (_Component2) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Tag.__proto__ || Object.getPrototypeOf(Tag)).call.apply(_ref, [this].concat(args))), _this), _this.render = function () {
+      var _React$createElement;
+
       var _this2 = _this,
           props = _this2.props;
 
@@ -124,16 +128,17 @@ var Tag = function (_Component2) {
           isDragging = props.isDragging,
           connectDropTarget = props.connectDropTarget,
           readOnly = props.readOnly,
-          CustomRemoveComponent = props.CustomRemoveComponent;
+          CustomRemoveComponent = props.CustomRemoveComponent,
+          style = props.style;
 
 
       var tagComponent = _react2.default.createElement(
         'span',
-        {
+        (_React$createElement = {
           style: { opacity: isDragging ? 0 : 1 },
-          className: props.classNames.tag,
-          onClick: props.onTagClicked },
-        'ok',
+          className: props.classNames.tag
+        }, _defineProperty(_React$createElement, 'style', style), _defineProperty(_React$createElement, 'onClick', props.onTagClicked), _React$createElement),
+        label,
         _react2.default.createElement(RemoveComponent, {
           tag: props.tag,
           className: props.classNames.remove,
@@ -157,6 +162,7 @@ Tag.propTypes = {
   removeComponent: _propTypes2.default.func,
   onTagClicked: _propTypes2.default.func,
   classNames: _propTypes2.default.object,
+  style: _propTypes2.default.object,
   readOnly: _propTypes2.default.bool,
   connectDragSource: _propTypes2.default.func.isRequired,
   isDragging: _propTypes2.default.bool.isRequired,
@@ -165,7 +171,8 @@ Tag.propTypes = {
 
 Tag.defaultProps = {
   labelField: 'text',
-  readOnly: false
+  readOnly: false,
+  style: {}
 };
 
 exports.default = (0, _flow2.default)((0, _reactDnd.DragSource)(ItemTypes.TAG, tagSource, dragSource), (0, _reactDnd.DropTarget)(ItemTypes.TAG, tagTarget, dropCollect))(Tag);

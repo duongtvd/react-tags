@@ -72,7 +72,8 @@ var ReactTags = function (_Component) {
           removeComponent: removeComponent,
           onTagClicked: _this.handleTagClick.bind(_this, index),
           readOnly: readOnly,
-          classNames: classNames
+          classNames: classNames,
+          style: tag.style
         });
       });
     };
@@ -421,7 +422,8 @@ ReactTags.propTypes = {
   labelField: _propTypes2.default.string,
   suggestions: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     id: _propTypes2.default.string.isRequired,
-    text: _propTypes2.default.string.isRequired
+    text: _propTypes2.default.string.isRequired,
+    style: _propTypes2.default.object
   })),
   delimiters: _propTypes2.default.arrayOf(_propTypes2.default.number),
   autofocus: _propTypes2.default.bool,
@@ -449,7 +451,8 @@ ReactTags.propTypes = {
   inputValue: _propTypes2.default.string,
   tags: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     id: _propTypes2.default.string.isRequired,
-    text: _propTypes2.default.any.isRequired
+    text: _propTypes2.default.any.isRequired,
+    style: _propTypes2.default.object
   }))
 };
 ReactTags.defaultProps = {
