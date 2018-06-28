@@ -133,7 +133,7 @@ var Tag = function (_Component2) {
           style: { opacity: isDragging ? 0 : 1 },
           className: props.classNames.tag,
           onClick: props.onTagClicked },
-        label,
+        'ok',
         _react2.default.createElement(RemoveComponent, {
           tag: props.tag,
           className: props.classNames.remove,
